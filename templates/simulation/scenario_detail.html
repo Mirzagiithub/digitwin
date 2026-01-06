@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Scenario Detail{% endblock %}
+
+{% block content %}
+<h3>{{ scenario.name }}</h3>
+
+<p>{{ scenario.description }}</p>
+
+<ul class="list-group">
+    <li class="list-group-item"><strong>Status:</strong> {{ scenario.status }}</li>
+    <li class="list-group-item"><strong>Type:</strong> {{ scenario.scenario_type }}</li>
+</ul>
+{% endblock %}

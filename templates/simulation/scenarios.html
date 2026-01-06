@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Simulations{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between mb-3">
+    <h3>Simulation Scenarios</h3>
+    <a class="btn btn-success">New Scenario</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for s in scenarios %}
+        <tr>
+            <td>{{ s.name }}</td>
+            <td>{{ s.scenario_type }}</td>
+            <td>{{ s.status }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
