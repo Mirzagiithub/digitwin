@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Asset Health{% endblock %}
+
+{% block content %}
+<h3>Asset Health</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Asset</th>
+            <th>Score</th>
+            <th>Updated</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for h in health %}
+        <tr>
+            <td>{{ h.asset.name }}</td>
+            <td>{{ h.score }}</td>
+            <td>{{ h.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

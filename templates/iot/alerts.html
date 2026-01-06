@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Alerts{% endblock %}
+
+{% block content %}
+<h3>Alerts</h3>
+
+<table class="table table-danger table-hover">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Asset</th>
+            <th>Severity</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for a in alerts %}
+        <tr>
+            <td>{{ a.title }}</td>
+            <td>{{ a.asset.name }}</td>
+            <td>{{ a.severity }}</td>
+            <td>
+                {% if a.resolved %}
+                    Resolved
+                {% else %}
+                    Active
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

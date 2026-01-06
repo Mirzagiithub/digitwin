@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Telemetry{% endblock %}
+
+{% block content %}
+<h3>Telemetry Data</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Asset</th>
+            <th>Metric</th>
+            <th>Value</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for t in telemetry %}
+        <tr>
+            <td>{{ t.asset.name }}</td>
+            <td>{{ t.metric }}</td>
+            <td>{{ t.value }} {{ t.unit }}</td>
+            <td>{{ t.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

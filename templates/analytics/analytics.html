@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Analytics{% endblock %}
+
+{% block content %}
+<h3>Analytics Overview</h3>
+
+<canvas id="analyticsChart"></canvas>
+
+<script>
+const ctx = document.getElementById('analyticsChart');
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: {{ labels|safe }},
+        datasets: [{
+            label: 'Security Score',
+            data: {{ data|safe }},
+            borderColor: '#0d6efd',
+            tension: 0.4
+        }]
+    }
+});
+</script>
+{% endblock %}

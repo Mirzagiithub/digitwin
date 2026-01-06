@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Sensors{% endblock %}
+
+{% block content %}
+<h3>Sensors</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Active</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for s in sensors %}
+        <tr>
+            <td>{{ s.sensor_id }}</td>
+            <td>{{ s.name }}</td>
+            <td>{{ s.sensor_type }}</td>
+            <td>{{ s.is_active }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

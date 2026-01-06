@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Asset Detail{% endblock %}
+
+{% block content %}
+<h3>{{ asset.name }}</h3>
+
+<ul class="list-group">
+    <li class="list-group-item"><strong>ID:</strong> {{ asset.asset_id }}</li>
+    <li class="list-group-item"><strong>Type:</strong> {{ asset.asset_type.name }}</li>
+    <li class="list-group-item"><strong>Status:</strong> {{ asset.status }}</li>
+</ul>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Security Twins{% endblock %}
+
+{% block content %}
+<h3>Security Digital Twins</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Asset</th>
+            <th>Risk</th>
+            <th>Score</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for twin in twins %}
+        <tr>
+            <td>{{ twin.asset.name }}</td>
+            <td>{{ twin.risk_level }}</td>
+            <td>{{ twin.security_score }}</td>
+            <td>{{ twin.sync_status }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

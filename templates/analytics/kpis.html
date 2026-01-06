@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}KPIs{% endblock %}
+
+{% block content %}
+<h3>Key Performance Indicators</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Value</th>
+            <th>Target</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for kpi in kpis %}
+        <tr>
+            <td>{{ kpi.name }}</td>
+            <td>{{ kpi.value }}</td>
+            <td>{{ kpi.target_value }}</td>
+            <td>{{ kpi.status }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

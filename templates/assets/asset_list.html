@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Assets{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between mb-3">
+    <h3>Assets</h3>
+    <a href="{% url 'asset-create' %}" class="btn btn-primary">Add Asset</a>
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for asset in assets %}
+        <tr>
+            <td>{{ asset.name }}</td>
+            <td>{{ asset.asset_type.name }}</td>
+            <td>{{ asset.status }}</td>
+            <td>
+                <a href="{% url 'asset-detail' asset.id %}" class="btn btn-sm btn-outline-primary">View</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

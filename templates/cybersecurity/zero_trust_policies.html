@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Zero Trust Policies{% endblock %}
+
+{% block content %}
+<h3>Zero Trust Policies</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Framework</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in policies %}
+        <tr>
+            <td>{{ p.name }}</td>
+            <td>{{ p.framework }}</td>
+            <td>{{ p.enforcement_status }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

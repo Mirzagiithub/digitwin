@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h3 class="mb-4">System Overview</h3>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="card metric-card">
+            <div class="metric-value">{{ stats.assets }}</div>
+            <div class="metric-label">Assets</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card metric-card">
+            <div class="metric-value">{{ stats.devices }}</div>
+            <div class="metric-label">Devices</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card metric-card">
+            <div class="metric-value text-warning">{{ stats.alerts }}</div>
+            <div class="metric-label">Active Alerts</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card metric-card">
+            <div class="metric-value text-danger">{{ stats.threats }}</div>
+            <div class="metric-label">Threats</div>
+        </div>
+    </div>
+</div>
+
+<canvas id="telemetryChart" height="90"></canvas>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+new Chart(document.getElementById('telemetryChart'), {
+    type: 'line',
+    data: {
+        labels: {{ chart.labels|safe }},
+        datasets: [{
+            label: 'Telemetry',
+            data: {{ chart.data|safe }},
+            borderColor: '#0d6efd'
+        }]
+    }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}IoT Devices{% endblock %}
+
+{% block content %}
+<h3>Devices</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Device ID</th>
+            <th>Asset</th>
+            <th>Protocol</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for d in devices %}
+        <tr>
+            <td>{{ d.device_id }}</td>
+            <td>{{ d.asset.name }}</td>
+            <td>{{ d.protocol }}</td>
+            <td>{{ d.connection_status }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
